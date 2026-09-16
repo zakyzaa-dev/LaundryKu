@@ -6,7 +6,7 @@
             </div>
             <div class="title-header">
                 <h2 class="text-white m-0 fw-bold">LaundryKu</h2>
-                <div class="opacity-75 text-white">Solusi anti malas mencuci!</div>
+                <div class="opacity-75 text-white">Solusi anti malas mencuci</div>
             </div>
         </div>
     </div>
@@ -19,8 +19,9 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav gap-3">
+                <div class="navbar-nav">
                     <a class="nav-link" href="#">Halaman Utama</a>
+                    <a class="nav-link" href="#">Cek Cucianmu</a>
                     <a class="nav-link" href="#">Tentang Kami</a>
                 </div>
             </div>

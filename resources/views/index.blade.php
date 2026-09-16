@@ -12,7 +12,8 @@
                         nyuci sendiri. Dijamin wangi, cepat dan harga bersahabat!</p>
                     <div class="d-flex gap-2">
                         <a href="#testimoni" class="btn btn-light btn-lg">Cek Testimoni!</a>
-                        <a href="#testimoni" class="btn btn-outline-warning btn-lg">Tanya Admin!</a>
+                        <a class="btn btn-outline-warning btn-lg" href="https://wa.me/{{ env('ADMIN_WHATSAPP') }}"
+                            target="_blank">Tanya Admin!</a>
                     </div>
                 </div>
                 <div class="col-lg-5 text-center">
