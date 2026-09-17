@@ -20,6 +20,14 @@
             align-items: center;
             justify-content: center;
         }
+
+        .footer-cenah {
+            background:
+                linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #0b2b38 100%),
+                linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%);
+            background-blend-mode: multiply;
+            color: #ffffff;
+        }
     </style>
 </head>
 
@@ -29,6 +37,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
     </script>
+    @include('partials.footer')
 </body>
 
 </html>
