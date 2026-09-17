@@ -1,5 +1,4 @@
-@extends('layouts.main')
-@section('content')
+<x-layouts.main title="Home">
     {{-- HERO SECTION --}}
     <div class="text-white" style="background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%)">
         <div class="container">
@@ -85,10 +84,10 @@
     <div class="bg-light py-5">
         <div class="container">
             <h2 class="text-center fw-bold mb-5">Cara Kerja Kita</h2>
-            <div class="row g-4 text-center">
+            <div class="row g-3 text-center">
 
                 {{-- CARA KERJA 1 --}}
-                <div class="col-12 col-lg-3">
+                <div class="col-6 col-lg-3">
 
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body">
@@ -100,7 +99,7 @@
                 </div>
 
                 {{-- CARA KERJA 2 --}}
-                <div class="col-12 col-lg-3">
+                <div class="col-6 col-lg-3">
 
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body">
@@ -112,7 +111,7 @@
                 </div>
 
                 {{-- CARA KERJA 3 --}}
-                <div class="col-12 col-lg-3">
+                <div class="col-6 col-lg-3">
 
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body">
@@ -124,7 +123,7 @@
                 </div>
 
                 {{-- CARA KERJA 4 --}}
-                <div class="col-12 col-lg-3">
+                <div class="col-6 col-lg-3">
 
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body">
@@ -137,4 +136,140 @@
             </div>
         </div>
     </div>
-@endsection
+
+    {{-- HARGA DAN LAYANAN LAUNDRYKU --}}
+    <div class="container py-5">
+        <h2 class="fw-bold text-center">Pilihan Layanan</h2>
+        <p class="text-muted mb-5 text-center">Harga perkilo, lebih jelas dari awal.</p>
+
+        {{-- TAMPILAN CARD HARGA --}}
+        <div class="row g-3 d-flex justify-content-center">
+
+            {{-- PAKET 1 --}}
+            <div class="col-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Reguler</h5>
+                        <p class="text-muted small">Selesai dalam 2 hari</p>
+
+                        <h3 class="fw-bold">Rp 7.000<span class="text-muted fs-6 fw-normal">/kg</span></h3>
+
+                        {{-- LIST BENEFIT --}}
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2"><i class="bi bi-check"></i> Cuci, kering, lipat rapi</li>
+                            <li class="mb-2"><i class="bi bi-check"></i> Minimal order 3 kg</li>
+                            <li class="mb-2"><i class="bi bi-check"></i> Pewangi pakaian</li>
+                        </ul>
+
+                        <a href="#" class="btn btn-outline-primary w-100 mt-auto">Pesan Paket</a>
+                    </div>
+                </div>
+            </div>
+
+            {{-- PAKET 2 --}}
+            <div class="col-6 col-lg-4">
+                <div class="card border-primary h-100">
+                    <div class="card-header bg-primary text-white text-center">
+                        Paling populer
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Express</h5>
+                        <p class="text-muted small">Selesai dalam hitungan jam</p>
+
+                        <h3 class="fw-bold">Rp 13.000<span class="text-muted fs-6 fw-normal">/kg</span></h3>
+
+                        {{-- LIST BENEFIT --}}
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2"><i class="bi bi-check"></i> Pengerjaan super cepat</li>
+                            <li class="mb-2"><i class="bi bi-check"></i> Prioritas antrian khusus</li>
+                            <li class="mb-2"><i class="bi bi-check"></i> Garansi tepat waktu</li>
+                        </ul>
+
+                        <a href="#" class="btn mx-auto btn-primary mt-auto w-100">Pesan Paket</a>
+                    </div>
+                </div>
+            </div>
+
+            {{-- PAKET 1 --}}
+            <div class="col-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Setrika saja</h5>
+                        <p class="text-muted small">Selesai dalam 1 hari</p>
+
+                        <h3 class="fw-bold">Rp 6.000<span class="text-muted fs-6 fw-normal">/kg</span></h3>
+
+                        {{-- LIST BENEFIT --}}
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2"><i class="bi bi-check"></i> Penyetrikaan profesional & licin</li>
+                            <li class="mb-2"><i class="bi bi-check"></i> Bonus hanger/gantungan baju</li>
+                            <li class="mb-2"><i class="bi bi-check"></i> Harga lebih ekonomis</li>
+                        </ul>
+
+                        <a href="#" class="btn btn-outline-primary w-100 mt-auto">Pesan Paket</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- ULASAN PENGGUNA --}}
+    <div class="bg-light">
+        <div class="container py-5">
+            <h2 class="fw-bold mb-5 text-center">Apa Kata Pelanggan</h2>
+
+            {{-- CARD KOMENTAR USER --}}
+            <div class="row g-3 d-flex justify-content-center">
+                <div class="col-6 col-lg-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body d-flex flex-column">
+                            <p>"여기 세탁 서비스 진짜 최고예요! 옷도 항상 깨끗하게 빨리고 향기도 오래 가서 너무 만족스러워요. 강력 추천합니다!"</p>
+                            <div class="user-info mt-auto d-flex align-items-center gap-3">
+                                <img src="{{ asset('img/kangHaerin.jfif') }}" alt="Kang haering"
+                                    style="width: 50px; height: 50px; object-fit: cover;" class="rounded-circle">
+                                <div class="username">
+                                    <p class="fw-bold m-0">Haerin Kang</p>
+                                    <p class="text-muted small m-0">NewJeans Member, Korea</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body d-flex flex-column">
+                            <p>"Pengerjaannya loh ya cepet banget cik 😹😹, semua noda noda dibaju bisa hilang,
+                                dan pastinya wangi rek 😹"</p>
+                            <div class="user-info mt-auto d-flex align-items-center gap-3">
+                                <img src="{{ asset('img/rusmok-ngawi.png') }}" alt="Kang haering"
+                                    style="width: 50px; height: 50px; object-fit: cover;" class="rounded-circle">
+                                <div class="username">
+                                    <p class="fw-bold m-0">Rusdi Alexander</p>
+                                    <p class="text-muted small m-0">Barbershop Owner, Ngawi Timur</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body d-flex flex-column">
+                            <p>"Cepet, mantep, wangi ceunahh"</p>
+                            <div class="user-info d-flex mt-auto align-items-center gap-3">
+                                <img src="{{ asset('img/hanni.png') }}" alt="Kang haering"
+                                    style="width: 50px; height: 50px; object-fit: cover;" class="rounded-circle">
+                                <div class="username">
+                                    <p class="fw-bold m-0">Phamy</p>
+                                    <p class="text-muted small m-0">Mahasiswa, Bandung</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</x-layouts.main>
