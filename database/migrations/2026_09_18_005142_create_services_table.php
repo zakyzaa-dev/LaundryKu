@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('service_name', 30);
+            $table->string('slug', 40);
             $table->string('description');
-            $table->decimal('price_per-kg', 10, 2);
+            $table->decimal('price_per_kg', 10, 2);
             $table->string('duration', 20);
             $table->timestamps();
         });
