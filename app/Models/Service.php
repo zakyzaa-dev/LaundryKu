@@ -2,9 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Guarded;
 use Illuminate\Database\Eloquent\Model;
 
+#[Guarded('id')]
 class Service extends Model
 {
-    //
+    public function orders()
+    {
+        $this->hasMany(Order::class);
+    }
 }
