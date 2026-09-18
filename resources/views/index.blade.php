@@ -1,8 +1,11 @@
 <x-layouts.main title="Home">
+
     {{-- HERO SECTION --}}
     <div class="text-white" style="background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%)">
         <div class="container">
             <div class="row d-flex justify-content-between align-items-center py-5 g-4">
+
+                {{-- TITLE HERO --}}
                 <div class="col-lg-7">
                     <h1 class="fw-bold display-5">Laundry Antar Jemput, Kelar Secepat Kilat</h1>
                     <p class="lead">Males nyuci? Mending ke <b class="fw-bold"><a href="/"
@@ -15,6 +18,8 @@
                             target="_blank">Tanya Admin!</a>
                     </div>
                 </div>
+
+                {{-- SLIDER ICON LAUNDRYKU --}}
                 <div class="col-lg-5 text-center">
                     <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
@@ -33,6 +38,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -86,7 +92,6 @@
 
                 {{-- CARA KERJA 1 --}}
                 <div class="col-6 col-lg-3">
-
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body">
                             <div class="work-step text-white fw-bold rounded-circle mx-auto mb-3">1</div>
@@ -98,7 +103,6 @@
 
                 {{-- CARA KERJA 2 --}}
                 <div class="col-6 col-lg-3">
-
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body">
                             <div class="work-step text-white fw-bold rounded-circle mx-auto mb-3">2</div>
@@ -110,7 +114,6 @@
 
                 {{-- CARA KERJA 3 --}}
                 <div class="col-6 col-lg-3">
-
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body">
                             <div class="work-step text-white fw-bold rounded-circle mx-auto mb-3">3</div>
@@ -122,7 +125,6 @@
 
                 {{-- CARA KERJA 4 --}}
                 <div class="col-6 col-lg-3">
-
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body">
                             <div class="work-step text-white fw-bold rounded-circle mx-auto mb-3">4</div>
@@ -212,12 +214,13 @@
     </div>
 
     {{-- ULASAN PENGGUNA --}}
-    <div class="bg-light">
+    <div id="testimoni" class="bg-light">
         <div class="container py-5">
             <h2 class="fw-bold mb-5 text-center">Apa Kata Pelanggan</h2>
 
             {{-- CARD KOMENTAR USER --}}
             <div class="row g-3 d-flex justify-content-center">
+
                 <div class="col-6 col-lg-4">
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body d-flex flex-column">
@@ -266,6 +269,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
 
