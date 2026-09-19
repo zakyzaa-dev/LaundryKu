@@ -30,4 +30,5 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('auth.logout')-
 // ROUTE FOR Order
 Route::controller(OrderController::class)->name('orders.')->group(function (){
     Route::get('/order', 'create')->name('create');
+    Route::post('/order/test', 'showReceipt')->name('receipt');
 });
