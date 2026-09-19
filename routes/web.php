@@ -6,9 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
-// ROUTE VIEW
-Route::view('/order', 'orders.pesan')->name('orders.create');
-
+// ROUTE FOR PAGES
 Route::controller(PageController::class)->name('pages.')->group(function () {
     route::get('/', 'index')->name('home');
 });
@@ -27,12 +25,9 @@ Route::middleware('guest')->group(function (){
     });
 });
 
-Route::middleware('auth')->group(function (){
+Route::post('/logout', [LoginController::class, 'logout'])->name('auth.logout')->middleware('auth');
 
-    Route::post('/logout', [LoginController::class, 'logout'])->name('auth.logout');
-    // ROUTE FOR ORDER
-    Route::controller(OrderController::class)->name('orders.')->group(function (){
-        Route::post('/order', 'create_order')->name('store');
-    });
-
+// ROUTE FOR Order
+Route::controller(OrderController::class)->name('orders.')->group(function (){
+    Route::get('/order', 'create')->name('create');
 });
