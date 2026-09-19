@@ -25,4 +25,6 @@ Route::controller(AuthController::class)->name('auth.')->group(function () {
 
     Route::get('/login', 'show_login')->name('login');
     Route::post('/login', 'login');
+
+    Route::post('/logout', 'logout')->name('logout');
 });

@@ -10,7 +10,7 @@
                         @csrf
 
                         <!-- Hidden Role ID (Default: Customer / ID 2) -->
-                        <input type="hidden" name="role_id" value="2">
+                        <input type="hidden" name="role_id" value="1">
 
                         <!-- Nama Lengkap (full_name) -->
                         <div class="mb-3">
