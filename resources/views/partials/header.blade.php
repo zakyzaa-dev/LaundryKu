@@ -44,9 +44,9 @@
                                 <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->full_name) }}&background=0D6EFD&color=fff"
                                     alt="User Avatar" width="32" height="32"
                                     class="rounded-circle border border-2 border-white">
-                                <span>{{ Auth::user()->name }}</span>
+                                <span>{{ Auth::user()->full_name }}</span>
                             </button>
-                            <ul class="dropdown-menu dropdown-menu-end shadow">
+                            <ul class="dropdown-menu shadow">
                                 <li>
                                     <a class="dropdown-item" href="#">
                                         Dashboard

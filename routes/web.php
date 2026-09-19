@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,13 +19,15 @@ Route::prefix('/orders')->controller(OrderController::class)->name('orders.')->g
         Route::view('/', 'orders.pesan')->name('create');
 });
 
-// ROUTE FOR AUTH
-Route::controller(AuthController::class)->name('auth.')->group(function () {
-    Route::get('/register', 'show_register')->name('register');
-    Route::post('/register', 'register');
+// ROUTE FOR GUEST
+Route::middleware('guest')->group(function (){
+    Route::controller(LoginController::class)->group(function (){
+        Route::get('/login', 'create')->name('auth.login');
+        Route::post('/login', 'login');
+    });
 
-    Route::get('/login', 'show_login')->name('login');
-    Route::post('/login', 'login');
-
-    Route::post('/logout', 'logout')->name('logout');
+    Route::controller(RegisterController::class)->group(function (){
+        Route::get('/register', 'show_register')->name('auth.register');
+        Route::post('/register', 'register');
+    });
 });

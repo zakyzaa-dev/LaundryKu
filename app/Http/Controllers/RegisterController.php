@@ -7,9 +7,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class AuthController extends Controller
+class RegisterController extends Controller
 {
-    public function show_register()
+    public function create()
     {
         return view('auth.register');
     }
@@ -39,22 +39,4 @@ class AuthController extends Controller
         // return redirect()->route('auth.login')->with('success_register', 'Berhasil membuat akun! silahkan login');
         return redirect()->route('pages.home');
     }
-
-    public function show_login()
-    {
-        return view('auth.login');
-    }
-
-    public function login(Request $req)
-    {
-        $credential = $req->only('username', 'password');
-
-        if (Auth::attempt([$credential])){
-            $req->session()->regenerate();
-
-            return redirect(route('pages.home'));
-        }
-
-    }
-
 }

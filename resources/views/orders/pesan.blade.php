@@ -11,6 +11,12 @@
                             <input type="text" name="nama" id="nama" class="form-control"
                                 placeholder="Hanni pham" required>
                         </div>
+                        @auth
+                            <button class="btn btn-primary w-100">Order!</button>
+                        @endauth
+                        @guest
+                            <button class="btn btn-primary w-100" disabled>Login terlebih dahulu!</button>
+                        @endguest
                     </div>
                 </div>
             </div>
