@@ -12,13 +12,6 @@
                 <div class="card-body p-4">
                     <h4 class="card-title text-center fw-bold mb-4">Masuk Akun</h4>
 
-                    <!-- Flash Alert jika ada error login -->
-                    @if (session('error'))
-                        <div class="alert alert-danger p-2 fs-6 mb-3">
-                            {{ session('error') }}
-                        </div>
-                    @endif
-
                     <form action="{{ route('auth.login') }}" method="POST">
                         @csrf
 

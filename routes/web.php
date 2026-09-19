@@ -7,17 +7,12 @@ use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 // ROUTE VIEW
-Route::view('/', 'index');
+Route::view('/order', 'orders.pesan')->name('orders.create');
 
 Route::controller(PageController::class)->name('pages.')->group(function () {
     route::get('/', 'index')->name('home');
-
 });
 
-// ROUTE FOR Order
-Route::prefix('/orders')->controller(OrderController::class)->name('orders.')->group(function () {
-        Route::view('/', 'orders.pesan')->name('create');
-});
 
 // ROUTE FOR GUEST
 Route::middleware('guest')->group(function (){
@@ -27,7 +22,17 @@ Route::middleware('guest')->group(function (){
     });
 
     Route::controller(RegisterController::class)->group(function (){
-        Route::get('/register', 'show_register')->name('auth.register');
+        Route::get('/register', 'create')->name('auth.register');
         Route::post('/register', 'register');
     });
+});
+
+Route::middleware('auth')->group(function (){
+
+    Route::post('/logout', [LoginController::class, 'logout'])->name('auth.logout');
+    // ROUTE FOR ORDER
+    Route::controller(OrderController::class)->name('orders.')->group(function (){
+        Route::post('/order', 'create_order')->name('store');
+    });
+
 });
