@@ -61,6 +61,7 @@
                     <x-invoice.invoice-blank></x-invoice>
                     @else
                         <x-invoice.invoice-detail :detail="session('receiptDetail')"></x-invoice>
+                            <h1>Testing di branch feature</h1>
                 @endif
             </div>
 
