@@ -44,11 +44,12 @@
                                 </div>
                             </div>
                             @auth
-                                <button class="btn btn-primary w-100">Order!</button>
+                                <button
+                                    class="btn btn-primary w-100">{{ session('receiptDetail') ? 'Hitung ulang nota' : 'Hitung Nota' }}</button>
                             @endauth
 
                             @guest
-                                <button class="btn btn-primary w-100" disabled>Login terlebih dahulu!</button>
+                                <a class="btn btn-primary w-100" href="{{ route('auth.login') }}">Login terlebih dahulu!</a>
                             @endguest
                         </form>
 
@@ -62,7 +63,10 @@
                     <x-invoice.invoice-blank></x-invoice>
                     @else
                         <x-invoice.invoice-detail :detail="session('receiptDetail')"></x-invoice>
-                            <h1>Testing di branch feature</h1>
+                            <form action="#" method="post">
+                                @csrf
+                                <button type="submit" class="mt-3 btn-primary btn w-100">Konfirmasi order</button>
+                            </form>
                 @endif
             </div>
 
