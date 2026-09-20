@@ -32,10 +32,11 @@
                                 {{-- SERVICE --}}
                                 <div class="service flex-fill   ">
                                     <label for="service" class="form-label">Layanan</label>
-                                    <select name="service" id="service" class="form-select">
+                                    <select name="service" id="service" class="form-select" required>
                                         <option value="" disabled selected>Pilih Layanan</option>
                                         @forelse ($services as $service)
-                                            <option value="{{ $service->id }}">{{ $service->service_name }}</option>
+                                            <option value="{{ $service->id }}">{{ $service->service_name }} - Rp
+                                                {{ number_format($service->price_per_kg, 0, ',', '.') }} /kg</option>
                                         @empty
                                             <option value="" disabled selected>Belum ada data layanan!</option>
                                         @endforelse
