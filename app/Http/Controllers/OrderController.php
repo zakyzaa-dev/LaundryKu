@@ -31,14 +31,14 @@ class OrderController extends Controller
             'service' => ['required', 'numeric']
         ]);
 
-        $service = Service::findOrFail($validated['service']);
+        $service = Service::find($validated['service']);
         $user = Auth::user();
         $token = $this->generateToken();
 
         if (!$service){
             return back()->withErrors([
                 'service' => 'Service tidak ditemukan!'
-            ])->onlyInput('weight');
+            ])->withInput();
         }
 
         $harga_total = $service->price_per_kg * $validated['weight'];
