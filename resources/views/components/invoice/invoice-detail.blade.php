@@ -1,10 +1,10 @@
 @props(['detail'])
 
-<div class="card shadow-sm">
+<div class="card shadow-sm bg-light">
     <div class="card-body p-4">
         {{-- HEADER NOTA --}}
         <div class="text-center mb-3">
-            <div class="badge bg-primary-subtle text-primary fw-bold mb-2 px-3 py-2 rounded-pill">
+            <div class="badge bg-primary bg-opacity-10 text-primary fw-bold mb-2 px-3 py-2 rounded-pill">
                 STRUK PEMBAYARAN
             </div>
             <h4 class="fw-bold text-dark mb-0">LaundryKu</h4>
@@ -33,12 +33,6 @@
         <div class="d-flex justify-content-between align-items-center mb-2">
             <span class="text-muted small">Berat Total</span>
             <span class="fw-semibold text-dark">{{ $detail['berat'] }} Kg</span>
-        </div>
-
-        {{-- TOKEN / KODE RESI --}}
-        <div class="d-flex justify-content-between align-items-center my-3 p-2 bg-light rounded">
-            <span class="text-muted small fw-bold">TOKEN RESI</span>
-            <span class="badge bg-dark fs-6 font-monospace px-3 py-2">{{ $detail['token'] }}</span>
         </div>
 
         <hr style="border-top: 2px dashed #ccc;" class="my-3">

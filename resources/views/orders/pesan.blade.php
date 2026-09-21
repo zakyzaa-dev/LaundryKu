@@ -25,8 +25,11 @@
                                 {{-- BERAT --}}
                                 <div class="berat flex-fill">
                                     <label for="weight" class="form-label">Estimasi Berat</label>
-                                    <input type="number" name="weight" id="weight" class="form-control"
-                                        placeholder="3 kg" required>
+                                    <div class="input-group">
+                                        <input type="number" step="0.01" name="weight" id="weight"
+                                            class="form-control" placeholder="3.6" required min="0">
+                                        <span class="input-group-text">Kg</span>
+                                    </div>
                                 </div>
 
                                 {{-- SERVICE --}}
@@ -54,11 +57,12 @@
                         </form>
                     </div>
                 </div>
-                <div class="d-flex mt-3 justify-content-between bg-light align-items-center p-2 rounded">
-                    <span class="text-muted small fw-bold">TOKEN RESI</span>
-                    <span class="text-white fw-bold badge bg-dark fs-6 font-monospace px-3 py-2">TESTING
-                        KENAPA BANF</span>
-                </div>
+
+                {{-- SHOW TOKEN AFTER USER CONFIRM --}}
+                @if (session('token'))
+                    <x-token :token="session('token')"></x-token>
+                @endif
+
             </div>
 
             {{-- NOTA SECTION --}}
@@ -67,7 +71,7 @@
                     <x-invoice.invoice-blank></x-invoice>
                     @else
                         <x-invoice.invoice-detail :detail="session('receiptDetail')"></x-invoice>
-                            <form action="#" method="post">
+                            <form action="{{ route('orders.token') }}" method="post">
                                 @csrf
                                 <button type="submit" class="mt-3 btn-primary btn w-100">Konfirmasi order</button>
                             </form>

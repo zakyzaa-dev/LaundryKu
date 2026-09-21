@@ -6,6 +6,7 @@ use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class OrderController extends Controller
@@ -33,7 +34,6 @@ class OrderController extends Controller
 
         $service = Service::find($validated['service']);
         $user = Auth::user();
-        $token = $this->generateToken();
 
         if (!$service){
             return back()->withErrors([
@@ -45,12 +45,19 @@ class OrderController extends Controller
         $receiptDetail = [
             'nama' => $user->full_name,
             'alamat' => $user->address,
-            'token' => $token,
             'jenis_layanan' => $service->service_name,
             'harga' => $harga_total,
             'berat' => $validated['weight'],
         ];
 
         return back()->with('receiptDetail', $receiptDetail);
+    }
+
+    public function showToken(Request $req)
+    {
+        if($req->session()->has('receiptDetail')){
+            Session::reflash();
+        }
+        return back()->with('token', $this->generateToken());
     }
 }
