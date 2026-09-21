@@ -52,8 +52,12 @@
                                 <a class="btn btn-primary w-100" href="{{ route('auth.login') }}">Login terlebih dahulu!</a>
                             @endguest
                         </form>
-
                     </div>
+                </div>
+                <div class="d-flex mt-3 justify-content-between bg-light align-items-center p-2 rounded">
+                    <span class="text-muted small fw-bold">TOKEN RESI</span>
+                    <span class="text-white fw-bold badge bg-dark fs-6 font-monospace px-3 py-2">TESTING
+                        KENAPA BANF</span>
                 </div>
             </div>
 
