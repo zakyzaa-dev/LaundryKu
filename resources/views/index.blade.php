@@ -203,10 +203,10 @@
     {{-- ULASAN PENGGUNA --}}
     <div id="testimoni" class="bg-light">
         <div class="container py-5">
-            <h2 class="fw-bold mb-5 text-center">Apa Kata Pelanggan</h2>
+            <h2 id="testimoni-title" class="fw-bold mb-5 text-center">Apa Kata Pelanggan</h2>
 
             {{-- CARD KOMENTAR USER --}}
-            <div class="row g-3 d-flex justify-content-center">
+            <div id="card-content" class="row g-3 d-flex justify-content-center">
 
                 <div class="col-6 col-lg-4">
                     <div class="card border-0 shadow-sm h-100">

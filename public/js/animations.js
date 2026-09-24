@@ -44,12 +44,9 @@ gsap.from("#card-content > *", {
         // markers: true,
         start: "top 65%",
     },
-    y: (index) => {
-        return index % 2 == 0 ? 50 : -50;
-    },
+    y: 50,
     opacity: 0,
     duration: 0.5,
-    filter: "blur(10px)",
     ease: "power2.Out",
     stagger: 0.4,
 });
