@@ -6,7 +6,7 @@
             <div class="row d-flex justify-content-between align-items-center py-5 g-4">
 
                 {{-- TITLE HERO --}}
-                <div class="col-lg-7">
+                <div id="title-hero" class="col-lg-7">
                     <h1 class="fw-bold display-5">Laundry Antar Jemput, Kelar Secepat Kilat</h1>
                     <p class="lead">Males nyuci? Mending ke <b class="fw-bold"><a href="/"
                                 class="text-white text-decoration-none">LaundryKu</a></b>. Solusi
