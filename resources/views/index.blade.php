@@ -8,11 +8,12 @@
                 {{-- TITLE HERO --}}
                 <div id="title-hero" class="col-lg-7">
                     <h1 class="fw-bold display-5">Laundry Antar Jemput, Kelar Secepat Kilat</h1>
-                    <p class="lead">Males nyuci? Mending ke <b class="fw-bold"><a href="/"
+                    <p id="type-writter" class="lead">Males nyuci? Mending ke <b class="fw-bold"><a href="/"
                                 class="text-white text-decoration-none">LaundryKu</a></b>. Solusi
                         buat kamu yang mager
                         nyuci sendiri. Dijamin wangi, cepat dan harga bersahabat!</p>
-                    <div class="d-flex gap-2">
+                    {{-- <p id="type-writter" class="lead"></p> --}}
+                    <div id="btn-wrap" class="d-flex gap-2">
                         <a href="#testimoni" class="btn btn-light btn-lg">Cek Testimoni!</a>
                         <a class="btn btn-outline-warning btn-lg" href="https://wa.me/{{ env('ADMIN_WHATSAPP') }}"
                             target="_blank">Tanya Admin!</a>
@@ -70,15 +71,15 @@
     <div class="container">
         <div class="row text-center py-5 g-4">
             <div class="col-12 col-lg-4">
-                <h2 class="text-primary fw-bold mb-0">10rb+</h2>
+                <h2 id="pesanan" class="text-primary fw-bold mb-0">0</h2>
                 <p class="mt-0 text-muted">Pesanan/bulan</p>
             </div>
             <div class="col-12 col-lg-4">
-                <h2 class="text-primary fw-bold mb-0">4.8</h2>
+                <h2 id="rating" class="text-primary fw-bold mb-0">0</h2>
                 <p class="mt-0 text-muted">Rating pelanggan</p>
             </div>
             <div class="col-12 col-lg-4">
-                <h2 class="text-primary fw-bold mb-0">100%</h2>
+                <h2 id="tepat-waktu" class="text-primary fw-bold mb-0">0</h2>
                 <p class="mt-0 text-muted">Tepat waktu</p>
             </div>
         </div>
