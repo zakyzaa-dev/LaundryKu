@@ -36,6 +36,6 @@ Route::controller(OrderController::class)->name('orders.')->group(function (){
 });
 
 
-Route::controller(DashboardController::class)->middleware(['auth', 'admin'])->name('pages.')->group(function () {
+Route::controller(DashboardController::class)->middleware(['auth', 'admin'])->name('admin.')->group(function () {
     Route::get('/admin/dashboard', 'index')->name('dashboard');
 });

@@ -50,7 +50,8 @@
                             </button>
                             <ul class="dropdown-menu shadow">
                                 <li>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item"
+                                        href="{{ Auth::user()->role?->role_name == 'Admin' ? route('admin.dashboard') : '/user/dashboard' }}">
                                         Dashboard
                                     </a>
                                 </li>
