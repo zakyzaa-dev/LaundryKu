@@ -1,5 +1,5 @@
 <header>
-    <div class="py-3 text-white" style="background-color: #0a58ca;">
+    {{-- <div class="py-3 text-white" style="background-color: #0a58ca;">
         <div class="container d-flex align-items-center gap-3">
             <div class="img-header">
                 <img src="{{ asset('img/laundry.jpg') }}" alt="LaundryKu Logo" width="80" class="rounded-3">
@@ -9,7 +9,7 @@
                 <div class="opacity-75 text-white">Solusi anti malas mencuci</div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- Navbar --}}
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #052c65;">
@@ -18,9 +18,11 @@
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavAltMarkup">
                 <!-- Menu Kiri -->
-                <div class="navbar-nav me-auto">
+                <a class="navbar-brand fw-bold text-white fs-3" href="{{ route('pages.home') }}">LaundryKu</a>
+
+                <div class="navbar-nav">
                     <a class="nav-link" href="{{ route('pages.home') }}">Halaman Utama</a>
                     <a class="nav-link" href="#">Cek Cucianmu</a>
                     <a class="nav-link" href="#">Tentang Kami</a>
