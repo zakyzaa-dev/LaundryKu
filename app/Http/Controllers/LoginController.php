@@ -23,7 +23,7 @@ class LoginController extends Controller
 
             /** @var User $user */
             if($user->is_admin()){
-                return redirect()->intended(route('admin.dashboa'));
+                return redirect()->intended(route('admin.dashboard'));
             }
 
             return redirect()->intended('/dashboard');

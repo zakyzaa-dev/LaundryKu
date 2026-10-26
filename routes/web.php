@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
@@ -32,4 +33,9 @@ Route::controller(OrderController::class)->name('orders.')->group(function (){
     Route::get('/order', 'create')->name('create');
     Route::post('/order/receipt-generate', 'showReceipt')->name('receipt');
     Route::post('/order/token-generate', 'showToken')->name('token');
+});
+
+
+Route::controller(DashboardController::class)->middleware(['auth', 'admin'])->name('pages.')->group(function () {
+    Route::get('/admin/dashboard', 'index')->name('dashboard');
 });
