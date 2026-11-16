@@ -28,7 +28,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        @include('admin.partials.sidebar')
+        @include('partials.dashboard.sidebar')
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -36,7 +36,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                @include('admin.partials.topbar')
+                @include('partials.dashboard.topbar')
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -52,7 +52,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            @include('admin.partials.footer')
+            @include('partials.dashboard.footer')
             <!-- End of Footer -->
 
         </div>

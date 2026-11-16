@@ -1,4 +1,4 @@
-<x-layouts.main title="Login">
+<x-layouts.app title="Login">
     <div class="container my-5 d-flex justify-content-center align-items-center">
         <div class="col-md-5 col-lg-4">
 
@@ -45,4 +45,4 @@
         </div>
     </div>
 
-</x-layouts.main>
+</x-layouts.app>

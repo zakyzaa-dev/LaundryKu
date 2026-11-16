@@ -1,4 +1,4 @@
-<x-layouts.main title="Home">
+<x-layouts.app title="Home">
 
     {{-- HERO SECTION --}}
     <div class="text-white" style="background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%)">
@@ -261,4 +261,4 @@
             </div>
         </div>
     </div>
-</x-layouts.main>
+</x-layouts.app>

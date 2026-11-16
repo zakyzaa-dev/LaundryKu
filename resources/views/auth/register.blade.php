@@ -1,4 +1,4 @@
-<x-layouts.main title="Register">
+<x-layouts.app title="Register">
     <div class="container d-flex justify-content-center align-items-center py-5">
         <div class="col-md-6 col-lg-5">
 
@@ -84,4 +84,4 @@
         </div>
     </div>
 
-    </x-layouts>
+</x-layouts.app>

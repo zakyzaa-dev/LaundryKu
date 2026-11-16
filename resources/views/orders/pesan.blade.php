@@ -1,4 +1,4 @@
-<x-layouts.main title="Order Service">
+<x-layouts.app title="Order Service">
 
     {{-- CEK ERROR --}}
     @if ($errors->any())
@@ -81,4 +81,4 @@
         </div>
     </div>
 
-    </x-layouts>
+</x-layouts.app>
