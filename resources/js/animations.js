@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 gsap.from("#testimoni-title", {
     scrollTrigger: {
         trigger: "#testimoni-title",
-        markers: true,
+        // markers: true,
         start: "top 80%",
     },
     y: -50,
@@ -90,7 +90,7 @@ gsap.from("#testimoni-title", {
 gsap.from("#card-content > *", {
     scrollTrigger: {
         trigger: "#testimoni-title",
-        markers: true,
+        // markers: true,
         start: "top 80%",
     },
     y: (index) => {

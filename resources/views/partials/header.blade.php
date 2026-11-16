@@ -51,7 +51,7 @@
                             <ul class="dropdown-menu shadow">
                                 <li>
                                     <a class="dropdown-item"
-                                        href="{{ Auth::user()->role?->role_name == 'Admin' ? route('admin.dashboard') : '/user/dashboard' }}">
+                                        href="{{ Auth::user()->role?->role_name == 'Admin' ? route('admin.dashboard') : '/me' }}">
                                         Dashboard
                                     </a>
                                 </li>
