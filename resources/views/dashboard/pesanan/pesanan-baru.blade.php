@@ -35,7 +35,7 @@
                             <td>
                                 <h5>
                                     <span
-                                        class="badge {{ $item->status == 'Diproses' ? 'badge-info' : ($item->status == 'Selesai' ? 'badge-success' : 'badge-warning') }}">
+                                        class="badge {{ $item->status === \App\Enum\OrderStatus::Diterima ? 'badge-info' : 'badge-warning' }}">
                                         {{ $item->status }}
                                     </span>
                                 </h5>
