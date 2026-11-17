@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\dashboard\CustomerController;
+use App\Http\Controllers\dashboard\PesananController;
+use App\Http\Controllers\dashboard\ServiceController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RegisterController;
@@ -16,7 +19,7 @@ Route::controller(PageController::class)->name('pages.')->group(function () {
 // ROUTE FOR GUEST
 Route::middleware('guest')->group(function (){
     Route::controller(LoginController::class)->group(function (){
-        Route::get('/login', 'create')->name('auth.login');
+        Route::get('/login', 'create')->name('login');
         Route::post('/login', 'login');
     });
 
@@ -38,4 +41,18 @@ Route::controller(OrderController::class)->name('orders.')->group(function (){
 
 Route::controller(DashboardController::class)->middleware(['auth', 'admin'])->name('admin.')->group(function () {
     Route::get('/admin/dashboard', 'index')->name('dashboard');
+});
+
+// ROUTE CUCIAN DASHBOARD
+Route::controller(PesananController::class)->middleware(['auth', 'admin'])->name('pesanan.')->group(function () {
+    Route::get('/admin/pesanan/masuk', 'baru')->name('baru');
+    Route::get('/admin/pesanan/selesai', 'selesai')->name('selesai');
+});
+
+Route::controller(ServiceController::class)->middleware(['auth', 'admin'])->name('layanan.')->group(function () {
+    Route::get('/admin/layanan', 'index')->name('index');
+});
+
+Route::controller(CustomerController::class)->middleware(['auth', 'admin'])->name('customer.')->group(function () {
+    Route::get('/admin/customer', 'index')->name('index');
 });

@@ -31,13 +31,13 @@ class User extends Authenticatable
         ];
     }
 
-    public function role()
+    public function orders()
     {
-        return $this->belongsTo(Role::class);
+        return $this->hasMany(Order::class, 'customer_id');
     }
 
     public function is_admin() : bool
     {
-        return $this->role?->role_name === "Admin";
+        return $this->role === "admin";
     }
 }

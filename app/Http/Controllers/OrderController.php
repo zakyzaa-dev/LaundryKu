@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Enum\OrderStatus;
+use App\Models\Order;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,6 +12,28 @@ use Illuminate\Support\Str;
 
 class OrderController extends Controller
 {
+    public function hitungHarga(int $service_id, float $weight)
+    {
+        $service = Service::findOrFail($service_id);
+        return $service->price_per_kg * $weight;
+    }
+
+    // Ubah parameter pertama dari Request menjadi array $validated
+    public function order(array $validated, string $token)
+    {
+        $price = $this->hitungHarga($validated['service'], $validated['weight']);
+
+        return Order::create([
+            'customer_id' => Auth::id(),
+            'service_id' => $validated['service'],
+            'token' => $token,
+            'weight' => $validated['weight'],
+            'total_price' => $price,
+            'status' => OrderStatus::Diterima,
+            'note' => $validated['note']
+        ]);
+    }
+
     public function create()
     {
         $services = Service::all();
@@ -27,8 +51,16 @@ class OrderController extends Controller
     public function showReceipt(Request $req)
     {
         $validated = $req->validate([
-            'weight' => ['required','numeric', 'min:0', 'max:99'],
-            'service' => ['required', 'numeric']
+            'weight' => ['required', 'numeric', 'min:0', 'max:99'],
+            'service' => ['required', 'numeric'],
+            'note' => ['string']
+        ]);
+
+        // Simpan ke session agar bisa dipakai saat konfirmasi
+        session([
+            'weight' => $validated['weight'],
+            'service' => $validated['service'],
+            'note' => $validated['note']
         ]);
 
         $service = Service::find($validated['service']);
@@ -54,9 +86,22 @@ class OrderController extends Controller
 
     public function showToken(Request $req)
     {
+        // Ambil data weight & service yang tersimpan di session
+        $data = [
+            'weight' => session('weight'),
+            'service' => session('service'),
+            'note' => session('note')
+        ];
+
         if($req->session()->has('receiptDetail')){
             Session::reflash();
         }
-        return back()->with('token', $this->generateToken());
+
+        $token = $this->generateToken();
+
+        // Kirim data session ke fungsi order
+        $this->order($data, $token);
+
+        return back()->with('token', $token);
     }
 }

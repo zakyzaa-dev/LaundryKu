@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\CekRole;
 use App\Http\Middleware\IsAdmin;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -14,7 +15,8 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
-            'admin' => IsAdmin::class
+            'admin' => IsAdmin::class,
+            'role' => CekRole::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

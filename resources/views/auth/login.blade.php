@@ -12,7 +12,7 @@
                 <div class="card-body p-4">
                     <h4 class="card-title text-center fw-bold mb-4">Masuk Akun</h4>
 
-                    <form action="{{ route('auth.login') }}" method="POST">
+                    <form action="{{ route('login') }}" method="POST">
                         @csrf
 
                         <!-- Username -->

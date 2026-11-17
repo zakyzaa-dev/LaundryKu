@@ -32,7 +32,7 @@
                 <div class="navbar-nav align-items-lg-center gap-2 mt-2 mt-lg-0">
                     @guest
                         {{-- Tampilan Kalau Belum Login --}}
-                        <a href="{{ route('auth.login') }}" class="btn btn-outline-light btn-sm px-3">Login</a>
+                        <a href="{{ route('login') }}" class="btn btn-outline-light btn-sm px-3">Login</a>
                         <a href="{{ route('auth.register') }}"
                             class="btn btn-warning btn-sm px-3 text-dark fw-bold">Register</a>
                     @endguest
@@ -51,7 +51,7 @@
                             <ul class="dropdown-menu shadow">
                                 <li>
                                     <a class="dropdown-item"
-                                        href="{{ Auth::user()->role?->role_name == 'Admin' ? route('admin.dashboard') : '/me' }}">
+                                        href="{{ Auth::user()->role == 'admin' ? route('admin.dashboard') : '/me' }}">
                                         Dashboard
                                     </a>
                                 </li>

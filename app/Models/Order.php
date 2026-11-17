@@ -5,7 +5,9 @@ namespace App\Models;
 use App\Enum\OrderStatus;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Service;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 
+#[Fillable('customer_id', 'service_id', 'token', 'weight', 'total_price', 'status', 'note')]
 class Order extends Model
 {
     protected $casts = [
@@ -14,11 +16,11 @@ class Order extends Model
 
     public function service()
     {
-        $this->belongsTo(Service::class);
+        return $this->belongsTo(Service::class);
     }
 
-    public function transaction()
+    public function customer()
     {
-        return $this->hasOne(Transaction::class);
+        return $this->belongsTo(User::class);
     }
 }

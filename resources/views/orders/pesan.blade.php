@@ -33,7 +33,7 @@
                                 </div>
 
                                 {{-- SERVICE --}}
-                                <div class="service flex-fill   ">
+                                <div class="service flex-fill">
                                     <label for="service" class="form-label">Layanan</label>
                                     <select name="service" id="service" class="form-select" required>
                                         <option value="" disabled selected>Pilih Layanan</option>
@@ -46,13 +46,18 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="mb-3">
+                                <label for="note" class="form-label">Catatan</label>
+                                <textarea name="note" id="note" cols="10" rows="5" class="form-control"
+                                    placeholder="Tinggalkan catatan untuk cucian kamu"></textarea>
+                            </div>
                             @auth
                                 <button
                                     class="btn btn-primary w-100">{{ session('receiptDetail') ? 'Hitung ulang nota' : 'Hitung Nota' }}</button>
                             @endauth
 
                             @guest
-                                <a class="btn btn-primary w-100" href="{{ route('auth.login') }}">Login terlebih dahulu!</a>
+                                <a class="btn btn-primary w-100" href="{{ route('login') }}">Login terlebih dahulu!</a>
                             @endguest
                         </form>
                     </div>

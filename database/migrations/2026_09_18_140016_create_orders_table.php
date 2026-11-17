@@ -14,12 +14,13 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('transaction_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('customer_id')->constrained('users');
             $table->foreignId('service_id')->constrained();
-            $table->char('token', 20);
+            $table->char('token', 20)->unique();
             $table->decimal('weight', 4, 2);
+            $table->decimal('total_price', 10, 2);
             $table->enum('status', ['Diterima', 'Diproses', 'Selesai', 'Diambil'])->default('Diterima');
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }
