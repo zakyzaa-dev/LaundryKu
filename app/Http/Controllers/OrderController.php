@@ -29,7 +29,7 @@ class OrderController extends Controller
             'token' => $token,
             'weight' => $validated['weight'],
             'total_price' => $price,
-            'status' => OrderStatus::Diterima,
+            'status' => OrderStatus::Menunggu,
             'note' => $validated['note']
         ]);
     }
@@ -53,7 +53,7 @@ class OrderController extends Controller
         $validated = $req->validate([
             'weight' => ['required', 'numeric', 'min:0', 'max:99'],
             'service' => ['required', 'numeric'],
-            'note' => ['string']
+            'note' => ['string', 'nullable']
         ]);
 
         // Simpan ke session agar bisa dipakai saat konfirmasi

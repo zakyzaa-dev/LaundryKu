@@ -19,7 +19,7 @@ return new class extends Migration
             $table->char('token', 20)->unique();
             $table->decimal('weight', 4, 2);
             $table->decimal('total_price', 10, 2);
-            $table->enum('status', ['Diterima', 'Diproses', 'Selesai', 'Diambil'])->default('Diterima');
+            $table->enum('status', ['Menunggu' ,'Diterima', 'Diproses', 'Selesai', 'Diambil'])->default('Diterima');
             $table->text('note')->nullable();
             $table->timestamps();
         });

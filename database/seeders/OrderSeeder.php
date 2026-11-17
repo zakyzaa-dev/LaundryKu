@@ -61,6 +61,15 @@ class OrderSeeder extends Seeder
                 'status' => OrderStatus::Diproses,
                 'note' => null
             ],
+            [
+                'customer_id' => 4,
+                'service_id' => 2,
+                'token' => 'testingXYZ10',
+                'weight' => 7.2,
+                'total_price' => 36000,
+                'status' => OrderStatus::Menunggu,
+                'note' => null
+            ],
         ];
 
         foreach ($order as $item) {

@@ -37,6 +37,8 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Menu Cucian :</h6>
+                <a class="collapse-item" href="{{ route('pesanan.menunggu') }}">Antrean Cucian <span
+                        class="badge badge-danger badge-counter">7</span></a>
                 <a class="collapse-item" href="{{ route('pesanan.baru') }}">Cucian Masuk</a>
                 <a class="collapse-item" href="{{ route('pesanan.selesai') }}">Cucian Selesai</a>
             </div>

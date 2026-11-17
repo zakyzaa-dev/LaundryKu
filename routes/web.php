@@ -47,6 +47,10 @@ Route::controller(DashboardController::class)->middleware(['auth', 'admin'])->na
 Route::controller(PesananController::class)->middleware(['auth', 'admin'])->name('pesanan.')->group(function () {
     Route::get('/admin/pesanan/masuk', 'baru')->name('baru');
     Route::get('/admin/pesanan/selesai', 'selesai')->name('selesai');
+    Route::get('/admin/pesanan/menunggu', 'menunggu')->name('menunggu');
+
+    // update status
+    Route::patch('admin/pesanan/{pesanan:id}/status', 'updateStatus')->name('updateStatus');
 });
 
 Route::controller(ServiceController::class)->middleware(['auth', 'admin'])->name('layanan.')->group(function () {
@@ -55,4 +59,5 @@ Route::controller(ServiceController::class)->middleware(['auth', 'admin'])->name
 
 Route::controller(CustomerController::class)->middleware(['auth', 'admin'])->name('customer.')->group(function () {
     Route::get('/admin/customer', 'index')->name('index');
+    Route::get('/admin/customer/create', 'create')->name('create');
 });
