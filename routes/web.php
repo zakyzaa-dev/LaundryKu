@@ -59,5 +59,6 @@ Route::controller(ServiceController::class)->middleware(['auth', 'admin'])->name
 
 Route::controller(CustomerController::class)->middleware(['auth', 'admin'])->name('customer.')->group(function () {
     Route::get('/admin/customer', 'index')->name('index');
+    Route::post('/admin/customer', 'store')->name('store');
     Route::get('/admin/customer/create', 'create')->name('create');
 });

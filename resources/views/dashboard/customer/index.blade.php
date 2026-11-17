@@ -2,10 +2,16 @@
     <h3 class="text-dark mt-3 mb-1">Daftar Customer</h3>
     <p class="text-muted small">Kelola data customer LaundryKu</p>
 
+    @if (session('success'))
+        <div class="alert alert-success">
+            <b>{{ session('success') }}</b>
+        </div>
+    @endif
+
     <div class="card">
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
             <h6 class="text-primary m0 font-weight-bold">Data customer</h6>
-            <a href="" class="btn-primary btn btn-sm">
+            <a href="{{ route('customer.create') }}" class="btn-primary btn btn-sm">
                 <i class="fas fa-plus fa-sm"></i> Tambah Customer
             </a>
         </div>
