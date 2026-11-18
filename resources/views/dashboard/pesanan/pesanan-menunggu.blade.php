@@ -9,9 +9,6 @@
     <div class="card">
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
             <h6 class="text-primary m0 font-weight-bold">Data pesanan menunggu</h6>
-            <a href="" class="btn-primary btn btn-sm">
-                <i class="fas fa-plus fa-sm"></i> Tambah Peminjaman
-            </a>
         </div>
         <div class="card-body">
             <table class="table-striped table-bordered table">
@@ -56,7 +53,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="9" class="text-muted text-center">Belum ada pesanan baru</td>
+                            <td colspan="10" class="text-muted text-center">Belum ada pesanan baru</td>
                         </tr>
                     @endforelse
                 </tbody>

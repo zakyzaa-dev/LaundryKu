@@ -3,14 +3,18 @@
     <p class="text-muted small">Kelola data pesanan masuk LaundryKu</p>
 
     @if (session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+        <div class="alert alert-success">
+            <b>
+                {{ session('success') }}
+            </b>
+        </div>
     @endif
 
     <div class="card">
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
             <h6 class="text-primary m0 font-weight-bold">Data pesanan masuk</h6>
-            <a href="" class="btn-primary btn btn-sm">
-                <i class="fas fa-plus fa-sm"></i> Tambah Peminjaman
+            <a href="{{ route('pesanan.create') }}" class="btn-primary btn btn-sm">
+                <i class="fas fa-plus fa-sm"></i> Buat Order
             </a>
         </div>
         <div class="card-body">
@@ -75,7 +79,7 @@
                     @empty
                         <tr>
                             {{-- Ubah colspan jadi 9 karena ada penambahan kolom Aksi --}}
-                            <td colspan="9" class="text-muted text-center">Belum ada pesanan masuk</td>
+                            <td colspan="10" class="text-muted text-center">Belum ada pesanan masuk</td>
                         </tr>
                     @endforelse
                 </tbody>

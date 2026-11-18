@@ -11,7 +11,7 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        $customers = User::where('role', 'pelanggan')->get();
+        $customers = User::where('role', 'pelanggan')->latest()->get();
         // $customers = User::all();
         return view('dashboard.customer.index', compact('customers'));
     }

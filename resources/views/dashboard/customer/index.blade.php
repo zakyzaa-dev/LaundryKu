@@ -24,6 +24,7 @@
                         <th>Username</th>
                         <th>Nomor Telepon</th>
                         <th>Alamat</th>
+                        <th>Mendaftar Pada</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,6 +35,7 @@
                             <td>{{ $item->username ?? '-' }}</td>
                             <td>{{ $item->phone }}</td>
                             <td>{{ $item->address }}</td>
+                            <td>{{ $item->created_at->format('d M Y') }}</td>
                         </tr>
                     @empty
                         <tr>

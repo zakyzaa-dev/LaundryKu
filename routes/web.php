@@ -49,6 +49,9 @@ Route::controller(PesananController::class)->middleware(['auth', 'admin'])->name
     Route::get('/admin/pesanan/selesai', 'selesai')->name('selesai');
     Route::get('/admin/pesanan/menunggu', 'menunggu')->name('menunggu');
 
+    // Membuat Orderan baru
+    Route::get('/admin/pesanan/buat-pesanan', 'create')->name('create');
+    Route::post('/admin/pesanan/buat-pesanan', 'store')->name('store');
     // update status
     Route::patch('admin/pesanan/{pesanan:id}/status', 'updateStatus')->name('updateStatus');
 });
