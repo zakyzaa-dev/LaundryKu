@@ -58,10 +58,12 @@ Route::controller(PesananController::class)->middleware(['auth', 'admin'])->name
 
 Route::controller(ServiceController::class)->middleware(['auth', 'admin'])->name('layanan.')->group(function () {
     Route::get('/admin/layanan', 'index')->name('index');
+    Route::get('/admin/layanan/tambah-layanan', 'create')->name('create');
+    Route::post('/admin/layanan/tambah-layanan', 'store')->name('store');
 });
 
 Route::controller(CustomerController::class)->middleware(['auth', 'admin'])->name('customer.')->group(function () {
     Route::get('/admin/customer', 'index')->name('index');
     Route::post('/admin/customer', 'store')->name('store');
-    Route::get('/admin/customer/create', 'create')->name('create');
+    Route::get('/admin/customer/tambah-customer', 'create')->name('create');
 });
