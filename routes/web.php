@@ -38,7 +38,6 @@ Route::controller(OrderController::class)->name('orders.')->group(function (){
     Route::post('/order/token-generate', 'showToken')->name('token');
 });
 
-
 Route::controller(DashboardController::class)->middleware(['auth', 'admin'])->name('admin.')->group(function () {
     Route::get('/admin/dashboard', 'index')->name('dashboard');
 });
@@ -60,6 +59,7 @@ Route::controller(ServiceController::class)->middleware(['auth', 'admin'])->name
     Route::get('/admin/layanan', 'index')->name('index');
     Route::get('/admin/layanan/tambah-layanan', 'create')->name('create');
     Route::post('/admin/layanan/tambah-layanan', 'store')->name('store');
+    Route::delete('/admin/layanan/{service}/hapus-layanan', 'destroy')->name('destroy');
 });
 
 Route::controller(CustomerController::class)->middleware(['auth', 'admin'])->name('customer.')->group(function () {

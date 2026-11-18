@@ -34,4 +34,10 @@ class ServiceController extends Controller
 
         return redirect()->route('layanan.index')->with('success', 'Berhasil menambahkan layanan baru: ' . $newService->service_name);
     }
+
+    public function destroy(Service $service)
+    {
+        $service->delete();
+        return back()->with('success', 'Berhasil menghapus layanan: ' . $service->service_name);
+    }
 }

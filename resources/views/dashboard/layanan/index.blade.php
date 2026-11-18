@@ -26,6 +26,7 @@
                         <th>Harga perkilo</th>
                         <th>Durasi</th>
                         <th>Ditambahkan Pada</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,10 +40,24 @@
                             <td>Rp. {{ number_format($item->price_per_kg, 0, ',', '.') }}</td>
                             <td>{{ $item->duration }}</td>
                             <td>{{ $item->created_at->format('d M Y') }}</td>
+                            <td>
+                                <div class="d-flex">
+                                    {{-- EDIT --}}
+                                    <a href="" class="btn-warning btn-sm btn mr-2">Edit</a>
+
+                                    {{-- DELETE --}}
+                                    <form action="{{ route('layanan.destroy', $item->id) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn-danger btn-sm btn mr-2"
+                                            onclick="return confirm('Yakin ingin menghapus anggota {{ $item->service_name }}')">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="8" class="text-muted text-center">Belum ada pesanan</td>
+                            <td colspan="9" class="text-muted text-center">Belum ada pesanan</td>
                         </tr>
                     @endforelse
                 </tbody>

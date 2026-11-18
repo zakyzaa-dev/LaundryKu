@@ -72,7 +72,7 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-success">Tambahkan Customer Baru</button>
+                <button type="submit" class="btn btn-success">Tambahkan Layanan Baru</button>
             </form>
         </div>
     </div>
