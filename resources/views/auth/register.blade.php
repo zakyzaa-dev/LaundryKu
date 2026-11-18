@@ -2,7 +2,7 @@
     <div class="container d-flex justify-content-center align-items-center py-5">
         <div class="col-md-6 col-lg-5">
 
-            <div class="card shadow-sm border-0 rounded-3">
+            <div class="card shadow border-0 rounded-3">
                 <div class="card-body p-4">
                     <h4 class="card-title text-center fw-bold mb-4">Buat Akun Baru</h4>
 

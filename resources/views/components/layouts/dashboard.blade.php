@@ -68,7 +68,7 @@
 
     <!-- Logout Modal-->
     {{-- <x-modals.logout-modal></x-modals.logout-modal> --}}
-
+    @stack('scripts')
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('sbadmin2/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('sbadmin2/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

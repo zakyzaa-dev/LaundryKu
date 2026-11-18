@@ -38,7 +38,6 @@ Route::controller(OrderController::class)->name('orders.')->group(function (){
     Route::post('/order/token-generate', 'showToken')->name('token');
 });
 
-
 Route::controller(DashboardController::class)->middleware(['auth', 'admin'])->name('admin.')->group(function () {
     Route::get('/admin/dashboard', 'index')->name('dashboard');
 });
@@ -47,12 +46,25 @@ Route::controller(DashboardController::class)->middleware(['auth', 'admin'])->na
 Route::controller(PesananController::class)->middleware(['auth', 'admin'])->name('pesanan.')->group(function () {
     Route::get('/admin/pesanan/masuk', 'baru')->name('baru');
     Route::get('/admin/pesanan/selesai', 'selesai')->name('selesai');
+    Route::get('/admin/pesanan/menunggu', 'menunggu')->name('menunggu');
+
+    // Membuat Orderan baru
+    Route::get('/admin/pesanan/buat-pesanan', 'create')->name('create');
+    Route::post('/admin/pesanan/buat-pesanan', 'store')->name('store');
+    // update status
+    Route::patch('admin/pesanan/{pesanan:id}/status', 'updateStatus')->name('updateStatus');
 });
 
 Route::controller(ServiceController::class)->middleware(['auth', 'admin'])->name('layanan.')->group(function () {
     Route::get('/admin/layanan', 'index')->name('index');
+    Route::get('/admin/layanan/tambah-layanan', 'create')->name('create');
+    Route::post('/admin/layanan/tambah-layanan', 'store')->name('store');
+    Route::delete('/admin/layanan/{service}/hapus-layanan', 'destroy')->name('destroy');
 });
 
 Route::controller(CustomerController::class)->middleware(['auth', 'admin'])->name('customer.')->group(function () {
     Route::get('/admin/customer', 'index')->name('index');
+    Route::post('/admin/customer', 'store')->name('store');
+    Route::get('/admin/customer/tambah-customer', 'create')->name('create');
+    Route::delete('/admin/customer/{customer}/hapus-customer', 'destroy')->name('destroy');
 });

@@ -11,8 +11,35 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        $customers = User::where('role', 'pelanggan')->get();
+        $customers = User::where('role', 'pelanggan')->latest()->get();
         // $customers = User::all();
         return view('dashboard.customer.index', compact('customers'));
+    }
+
+    public function create()
+    {
+        return view('dashboard.customer.create');
+    }
+
+    public function store(Request $req)
+    {
+        $validated = $req->validate([
+            'full_name' => ['string', 'required'],
+            'address' => ['string', 'required'],
+            'username' => ['string', 'required'],
+            'phone' => ['numeric', 'required'],
+            'password' => ['string', 'required']
+        ]);
+
+        $newUser = User::create($validated);
+
+        return redirect()->route('customer.index')->with('success', 'Berhasil menambahkan customer baru: ' . $newUser->full_name);
+    }
+
+    public function destroy(User $customer)
+    {
+        $customer->delete();
+
+        return back()->with('success', 'Berhasil menghapus customer: ' . $customer->full_name);
     }
 }

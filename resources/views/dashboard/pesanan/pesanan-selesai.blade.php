@@ -4,46 +4,47 @@
 
     <div class="card">
         <div class="card-header py-3 d-flex justify-content-between align-items-center">
-            <h6 class="text-primary m0 font-weight-bold">Data pesanan selesai</h6>
-            <a href="" class="btn-primary btn btn-sm">
-                <i class="fas fa-plus fa-sm"></i> Tambah Peminjaman
-            </a>
+            <h6 class="text-primary m-0 font-weight-bold">Data pesanan selesai</h6>
         </div>
         <div class="card-body">
-            <table class="table-striped table-bordered table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nama Pelanggan</th>
-                        <th>Nama Layanan</th>
-                        <th>Token Cucian</th>
-                        <th>Berat Cucian</th>
-                        <th>Total Harga</th>
-                        <th>Status</th>
-                        <th>Catatan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($pesanans as $item)
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead>
                         <tr>
-                            <td>{{ $item->id }}</td>
-                            <td>{{ $item->customer?->full_name ?? '-' }}</td>
-                            <td>{{ $item->service?->service_name ?? '-' }}</td>
-                            <td>{{ $item->token }}</td>
-                            <td>{{ $item->weight }} Kg</td>
-                            <td>Rp. {{ number_format($item->total_price, 0, ',', '.') }}</td>
-                            <td>
-                                <h5><span class="badge badge-success">{{ $item->status }}</span></h5>
-                            </td>
-                            <td style="max-width: 200px;">{{ $item->note ?? '-' }}</td>
+                            <th>No</th>
+                            <th>Token Cucian</th>
+                            <th>Nama Pelanggan</th>
+                            <th>Nama Layanan</th>
+                            <th>Berat Cucian</th>
+                            <th>Total Harga</th>
+                            <th>Status</th>
+                            <th>Selesai Pada</th>
+                            <th>Catatan</th>
                         </tr>
-                    @empty
-                        <tr>
-                            <td colspan="8" class="text-muted text-center">Belum ada pesanan</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @forelse ($pesanans as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td><span class="font-weight-bold">{{ $item->token }}</span></td>
+                                <td>{{ $item->customer?->full_name ?? '-' }}</td>
+                                <td>{{ $item->service?->service_name ?? '-' }}</td>
+                                <td>{{ $item->weight }} Kg</td>
+                                <td>Rp {{ number_format($item->total_price, 0, ',', '.') }}</td>
+                                <td>
+                                    <span class="badge badge-success px-2 py-1">{{ $item->status }}</span>
+                                </td>
+                                <td>{{ $item->updated_at?->format('d M Y, H:i') ?? '-' }}</td>
+                                <td style="max-width: 200px;">{{ $item->note ?? '-' }}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="9" class="text-muted text-center py-4">Belum ada pesanan selesai</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </x-layouts.dashboard>
