@@ -15,14 +15,14 @@ class PesananController extends Controller
 {
     public function selesai()
     {
-        $pesanans = Order::with('service', 'customer')->where('status', OrderStatus::Selesai->value)->latest()->get();
+        $pesanans = Order::with('service', 'customer')->where('status', OrderStatus::Selesai->value)->latest()->paginate(10);
 
         return view('dashboard.pesanan.pesanan-selesai', compact('pesanans'));
     }
 
     public function menunggu()
     {
-        $pesanans = Order::with('service', 'customer')->where('status', OrderStatus::Menunggu->value)->latest()->get();
+        $pesanans = Order::with('service', 'customer')->where('status', OrderStatus::Menunggu->value)->latest()->paginate(10);
         return view('dashboard.pesanan.pesanan-menunggu', compact('pesanans'));
     }
 
@@ -32,7 +32,7 @@ class PesananController extends Controller
             ->where('status', OrderStatus::Diterima->value)
             ->orWhere('status', OrderStatus::Diproses->value)
             ->latest()
-            ->get();
+            ->paginate(10);
 
         return view('dashboard.pesanan.pesanan-baru', compact('pesanans'));
     }

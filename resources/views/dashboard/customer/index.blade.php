@@ -35,7 +35,7 @@
                             <td>{{ $item->username ?? '-' }}</td>
                             <td>{{ $item->phone }}</td>
                             <td>{{ $item->address }}</td>
-                            <td>{{ $item->created_at->format('d M Y') }}</td>
+                            <td>{{ $item->created_at->format('d M Y H:i') }}</td>
                         </tr>
                     @empty
                         <tr>
