@@ -66,4 +66,5 @@ Route::controller(CustomerController::class)->middleware(['auth', 'admin'])->nam
     Route::get('/admin/customer', 'index')->name('index');
     Route::post('/admin/customer', 'store')->name('store');
     Route::get('/admin/customer/tambah-customer', 'create')->name('create');
+    Route::delete('/admin/customer/{customer}/hapus-customer', 'destroy')->name('destroy');
 });

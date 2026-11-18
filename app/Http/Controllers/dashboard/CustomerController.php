@@ -35,4 +35,11 @@ class CustomerController extends Controller
 
         return redirect()->route('customer.index')->with('success', 'Berhasil menambahkan customer baru: ' . $newUser->full_name);
     }
+
+    public function destroy(User $customer)
+    {
+        $customer->delete();
+
+        return back()->with('success', 'Berhasil menghapus customer: ' . $customer->full_name);
+    }
 }

@@ -36,6 +36,17 @@
                             <td>{{ $item->phone }}</td>
                             <td>{{ $item->address }}</td>
                             <td>{{ $item->created_at->format('d M Y H:i') }}</td>
+                            <td>
+                                <div class="d-flex">
+                                    {{-- DELETE BUTTON --}}
+                                    <form action="{{ route('customer.destroy', $item->id) }}" method="post">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-sm btn-danger"
+                                            onclick="return confirm('Yakin ingin menghapus customer {{ $item->full_name }}')">Hapus</button>
+                                    </form>
+                                </div>
+                            </td>
                         </tr>
                     @empty
                         <tr>
