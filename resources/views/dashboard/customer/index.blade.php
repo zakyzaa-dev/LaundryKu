@@ -1,4 +1,4 @@
-<x-layouts.dashboard title="Pesanan">
+<x-layouts.dashboard title="Customer">
     <h3 class="text-dark mt-3 mb-1">Daftar Customer</h3>
     <p class="text-muted small">Kelola data customer LaundryKu</p>
 

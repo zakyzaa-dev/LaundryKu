@@ -1,4 +1,4 @@
-<x-layouts.dashboard title="Tambah Anggota">
+<x-layouts.dashboard title="Tambah Customer">
     <h3 class="mt-3 mb-1 text-dark">Tambah Customer</h3>
     <p class="text-muted small">Menambahkan data customer baru</p>
 

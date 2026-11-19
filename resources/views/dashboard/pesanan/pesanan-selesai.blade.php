@@ -1,4 +1,4 @@
-<x-layouts.dashboard title="Pesanan">
+<x-layouts.dashboard title="Pesanan Selesai">
     <h3 class="text-dark mt-3 mb-1">Daftar pesanan selesai</h3>
     <p class="text-muted small">Kelola data pesanan selesai LaundryKu</p>
 
