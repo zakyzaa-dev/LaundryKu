@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('service_id')->constrained();
+            $table->foreignId('service_id')->constrained()->cascadeOnDelete();
             $table->char('token', 20)->unique();
             $table->decimal('weight', 4, 2);
             $table->decimal('total_price', 10, 2);
