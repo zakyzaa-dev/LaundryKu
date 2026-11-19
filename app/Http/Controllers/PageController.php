@@ -12,4 +12,9 @@ class PageController extends Controller
         $services = Service::all();
         return view('index', compact('services'));
     }
+
+    public function aboutUs()
+    {
+        return view('about-us');
+    }
 }

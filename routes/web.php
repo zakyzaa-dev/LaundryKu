@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 
 // ROUTE FOR PAGES
 Route::controller(PageController::class)->name('pages.')->group(function () {
-    route::get('/', 'index')->name('home');
+    Route::get('/', 'index')->name('home');
+    Route::get('/tentang-kami', 'aboutUs')->name('about');
 });
 
 
@@ -29,7 +30,7 @@ Route::middleware('guest')->group(function (){
     });
 });
 
-Route::post('/logout', [LoginController::class, 'logout'])->name('auth.logout')->middleware('auth');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
 // ROUTE FOR Order
 Route::controller(OrderController::class)->name('orders.')->group(function (){

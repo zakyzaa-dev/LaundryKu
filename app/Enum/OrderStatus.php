@@ -23,4 +23,26 @@ enum OrderStatus: string
             self::Diambil => "Laundry telah diambil pelanggan"
         };
     }
+
+    public static function stepperCases(): array
+    {
+        return [
+            self::Menunggu,
+            self::Diterima,
+            self::Diproses,
+            self::Selesai,
+            self::Diambil,
+        ];
+    }
+
+    public function isPassed(?self $currentStatus): bool
+    {
+        if (!$currentStatus) return false;
+
+        $cases = self::stepperCases();
+        $stepIndex = array_search($this, $cases, true);
+        $currentIndex = array_search($currentStatus, $cases, true);
+
+        return $currentIndex !== false && $stepIndex <= $currentIndex;
+    }
 }

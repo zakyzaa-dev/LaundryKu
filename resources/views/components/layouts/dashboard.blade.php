@@ -41,7 +41,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
+                    @include('logout-modal')
                     <!-- Page Heading -->
                     {{ $slot }}
 

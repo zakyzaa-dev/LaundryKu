@@ -110,11 +110,11 @@ class OrderController extends Controller
         $order = null;
 
         if ($request->filled('token')) {
-        $order = Order::with(['customer', 'service'])
-            ->where('token', trim($request->token))
-            ->first();
-    }
+            $order = Order::with(['customer', 'service'])
+                ->where('token', trim($request->token))
+                ->first();
+        }
 
-    return view('orders.lacak', compact('order'));
+        return view('orders.lacak', compact('order'));
     }
 }

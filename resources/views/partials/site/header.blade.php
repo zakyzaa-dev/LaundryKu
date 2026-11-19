@@ -25,7 +25,7 @@
                 <div class="navbar-nav">
                     <a class="nav-link" href="{{ route('pages.home') }}">Halaman Utama</a>
                     <a class="nav-link" href="{{ route('orders.lacak') }}">Cek Cucianmu</a>
-                    <a class="nav-link" href="#">Tentang Kami</a>
+                    <a class="nav-link" href="{{ route('pages.about') }}">Tentang Kami</a>
                 </div>
 
                 <!-- Menu Kanan (Auth System) -->
@@ -59,7 +59,7 @@
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li>
-                                    <form action="{{ route('auth.logout') }}" method="POST" class="m-0">
+                                    <form action="{{ route('logout') }}" method="POST" class="m-0">
                                         @csrf
                                         <button type="submit" class="dropdown-item text-danger">
                                             Logout

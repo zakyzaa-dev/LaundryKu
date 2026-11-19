@@ -57,41 +57,21 @@
                                     <h5 class="fw-bold text-primary mb-0">{{ $order->token }}</h5>
                                 </div>
                                 <span class="badge bg-info text-dark fs-6 px-3 py-2">
-                                    {{ $order->status instanceof \App\Enum\OrderStatus ? $order->status->label() : $order->status }}
+                                    {{ $order->status?->label() ?? $order->status }}
                                 </span>
                             </div>
 
                             <div class="card-body">
-                                {{-- STEPPER PROGRESS STATUS --}}
-                                @php
-                                    $statuses = [
-                                        \App\Enum\OrderStatus::Menunggu->value => 'Menunggu Konfirmasi',
-                                        \App\Enum\OrderStatus::Diterima->value => 'Diterima Toko',
-                                        \App\Enum\OrderStatus::Diproses->value => 'Sedang Dicuci',
-                                        \App\Enum\OrderStatus::Selesai->value => 'Selesai Dicuci',
-                                        \App\Enum\OrderStatus::Diambil->value => 'Sudah Diambil',
-                                    ];
-                                    $currentStatus =
-                                        $order->status instanceof \App\Enum\OrderStatus
-                                            ? $order->status->value
-                                            : $order->status;
-                                    $keys = array_keys($statuses);
-                                    $currentIndex = array_search($currentStatus, $keys);
-                                @endphp
-
                                 <div class="row text-center my-4 g-2">
-                                    @foreach ($statuses as $key => $label)
-                                        @php
-                                            $stepIndex = array_search($key, $keys);
-                                            $isPassed = $currentIndex !== false && $stepIndex <= $currentIndex;
-                                        @endphp
+                                    @foreach (\App\Enum\OrderStatus::stepperCases() as $step)
+                                        @php $isPassed = $step->isPassed($order->status) @endphp
                                         <div class="col">
                                             <div class="mx-auto mb-2 rounded-circle d-flex align-items-center justify-content-center fw-bold {{ $isPassed ? 'bg-primary text-white shadow-sm' : 'bg-light text-muted border' }}"
                                                 style="width: 42px; height: 42px;">
-                                                {{ $stepIndex + 1 }}
+                                                {{ $loop->iteration }}
                                             </div>
                                             <p class="small mb-0 {{ $isPassed ? 'fw-bold text-dark' : 'text-muted' }}">
-                                                {{ $label }}</p>
+                                                {{ $step->label() }}</p>
                                         </div>
                                     @endforeach
                                 </div>
@@ -129,7 +109,8 @@
                         <div class="alert alert-warning text-center p-4 shadow-sm border-0">
                             <h5 class="fw-bold mb-2">Token Tidak Ditemukan!</h5>
                             <p class="text-muted mb-0">Pastikan kode token resi
-                                <strong>"{{ request('token') }}"</strong> sudah sesuai dengan nota pemesanan kamu.</p>
+                                <strong>"{{ request('token') }}"</strong> sudah sesuai dengan nota pemesanan kamu.
+                            </p>
                         </div>
                     @endif
                 @else
