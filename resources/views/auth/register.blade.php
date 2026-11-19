@@ -37,7 +37,7 @@
                         <!-- Nomor HP (phone) -->
                         <div class="mb-3">
                             <label for="phone" class="form-label">Nomor WhatsApp / HP</label>
-                            <input type="text" class="form-control @error('phone') is-invalid @enderror"
+                            <input type="tel" class="form-control @error('phone') is-invalid @enderror"
                                 id="phone" name="phone" value="{{ old('phone') }}" placeholder="08123456789"
                                 required>
                             @error('phone')

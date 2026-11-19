@@ -38,6 +38,9 @@
                             <td>{{ $item->created_at->format('d M Y H:i') }}</td>
                             <td>
                                 <div class="d-flex">
+                                    {{-- EDIT --}}
+                                    <a href="{{ route('customer.edit', $item->username) }}"
+                                        class="btn-warning btn btn-sm mr-2">Edit</a>
                                     {{-- DELETE BUTTON --}}
                                     <form action="{{ route('customer.destroy', $item->id) }}" method="post">
                                         @method('DELETE')
