@@ -69,8 +69,10 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
-
-                <button type="submit" class="btn btn-success">Tambahkan Customer Baru</button>
+                <div class="d-flex">
+                    <button type="submit" class="btn btn-success mr-2">Tambahkan Customer Baru</button>
+                    <a href="{{ route('customer.index') }}" class="btn-secondary btn mr-2">Kembali</a>
+                </div>
             </form>
         </div>
     </div>

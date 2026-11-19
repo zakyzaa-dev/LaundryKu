@@ -113,7 +113,10 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-success">Simpan Orderan Baru</button>
+                <div class="d-flex">
+                    <button type="submit" class="btn mr-2 btn-success">Simpan Orderan Baru</button>
+                    <a href="{{ route('pesanan.baru') }}" class="btn-secondary mr-2 btn">Kembali</a>
+                </div>
             </form>
         </div>
     </div>
