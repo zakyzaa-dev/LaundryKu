@@ -1,6 +1,5 @@
 <x-layouts.app title="Tentang Kami">
 
-    {{-- HERO SECTION (Senada dengan Index) --}}
     <div class="text-white" style="background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%)">
         <div class="container">
             <div class="row d-flex justify-content-between align-items-center py-5 g-4">
@@ -20,7 +19,6 @@
         </div>
     </div>
 
-    {{-- SVG DIVIDER (Identik dengan Index) --}}
     <div class="custom-shape-divider-top-1789566759">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <defs>
@@ -41,7 +39,6 @@
         </svg>
     </div>
 
-    {{-- CERITA & KOMITMEN KAMI --}}
     <div class="container py-5">
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
@@ -75,7 +72,6 @@
         </div>
     </div>
 
-    {{-- STANDAR KUALITAS (3 PILAR UTAMA) --}}
     <div class="bg-light py-5">
         <div class="container">
             <div class="text-center mb-5">
@@ -120,7 +116,6 @@
         </div>
     </div>
 
-    {{-- LOKASI & JAM OPERASIONAL + CTA --}}
     <div class="container py-5">
         <div class="card border-0 shadow-sm">
             <div class="row g-0 align-items-center">
@@ -142,8 +137,8 @@
                     </div>
                 </div>
                 <div class="col-lg-5 text-center p-4"
-                    style="background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%)">
-                    <img src="{{ asset('img/laundryku-kurir.png') }}" alt="Kurir LaundryKu" class="img-fluid rounded-4"
+                    style="background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%); border-radius: 10px">
+                    <img src="{{ asset('img/laundryku-kurir.png') }}" alt="Kurir LaundryKu" class="img-fluid"
                         style="max-height: 280px; object-fit: contain;">
                 </div>
             </div>
