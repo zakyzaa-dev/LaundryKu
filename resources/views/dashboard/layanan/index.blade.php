@@ -43,7 +43,8 @@
                             <td>
                                 <div class="d-flex">
                                     {{-- EDIT --}}
-                                    <a href="" class="btn-warning btn-sm btn mr-2">Edit</a>
+                                    <a href="{{ route('layanan.edit', $item->slug) }}"
+                                        class="btn-warning btn-sm btn mr-2">Edit</a>
 
                                     {{-- DELETE --}}
                                     <form action="{{ route('layanan.destroy', $item->id) }}" method="post">

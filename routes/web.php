@@ -63,6 +63,8 @@ Route::controller(ServiceController::class)->middleware(['auth', 'admin'])->name
     Route::get('/admin/layanan/tambah-layanan', 'create')->name('create');
     Route::post('/admin/layanan/tambah-layanan', 'store')->name('store');
     Route::delete('/admin/layanan/{service}/hapus-layanan', 'destroy')->name('destroy');
+    Route::get('/admin/layanan/{service:slug}/edit', 'edit')->name('edit');
+    Route::put('/admin/layanan/{service:slug}', 'update')->name('update');
 });
 
 Route::controller(CustomerController::class)->middleware(['auth', 'admin'])->name('customer.')->group(function () {

@@ -29,7 +29,6 @@ class ServiceController extends Controller
             'duration'     => ['required', 'string', 'max:50'],
         ]);
 
-
         $newService = Service::create($validated);
 
         return redirect()->route('layanan.index')->with('success', 'Berhasil menambahkan layanan baru: ' . $newService->service_name);
@@ -39,5 +38,25 @@ class ServiceController extends Controller
     {
         $service->delete();
         return back()->with('success', 'Berhasil menghapus layanan: ' . $service->service_name);
+    }
+
+    public function edit(Service $service)
+    {
+        return view('dashboard.layanan.edit', compact('service'));
+    }
+
+    public function update(Request $req, Service $service)
+    {
+        $validated = $req->validate([
+            'service_name' => ['required', 'string', 'max:30'],
+            'slug'         => ['required', 'string', 'max:40', 'unique:services,slug,' . $req->id],
+            'description'  => ['required', 'string'],
+            'price_per_kg' => ['required', 'decimal:0,2', 'min:0', 'max:99999999.99'],
+            'duration'     => ['required', 'string', 'max:50'],
+        ]);
+
+        $service->update($validated);
+
+        return redirect()->route('layanan.index')->with('success', 'Berhasil mengupdate layanan: ' . $service->service_name);
     }
 }

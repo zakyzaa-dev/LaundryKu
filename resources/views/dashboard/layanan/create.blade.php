@@ -72,7 +72,10 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn-success">Tambahkan Layanan Baru</button>
+                <div class="d-flex">
+                    <button type="submit" class="btn mr-2 btn-success">Tambahkan Layanan Baru</button>
+                    <a href="{{ route('layanan.index') }}" class="btn-secondary mr-2 btn">Kembali</a>
+                </div>
             </form>
         </div>
     </div>

@@ -24,6 +24,7 @@
 
                 <div class="navbar-nav">
                     <a class="nav-link" href="{{ route('pages.home') }}">Halaman Utama</a>
+                    <a class="nav-link" href="{{ route('orders.create') }}">Cuci Sekarang</a>
                     <a class="nav-link" href="{{ route('orders.lacak') }}">Cek Cucianmu</a>
                     <a class="nav-link" href="{{ route('pages.about') }}">Tentang Kami</a>
                 </div>
