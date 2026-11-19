@@ -36,6 +36,7 @@ Route::controller(OrderController::class)->name('orders.')->group(function (){
     Route::get('/order', 'create')->name('create');
     Route::post('/order/receipt-generate', 'showReceipt')->name('receipt');
     Route::post('/order/token-generate', 'showToken')->name('token');
+    Route::get('/order/lacak-cucian', 'lacak')->name('lacak');
 });
 
 Route::controller(DashboardController::class)->middleware(['auth', 'admin'])->name('admin.')->group(function () {
@@ -53,6 +54,7 @@ Route::controller(PesananController::class)->middleware(['auth', 'admin'])->name
     Route::post('/admin/pesanan/buat-pesanan', 'store')->name('store');
     // update status
     Route::patch('admin/pesanan/{pesanan:id}/status', 'updateStatus')->name('updateStatus');
+    Route::patch('/admin/pesanan/{order}/update-berat', 'updateBerat')->name('updateBerat');
 });
 
 Route::controller(ServiceController::class)->middleware(['auth', 'admin'])->name('layanan.')->group(function () {

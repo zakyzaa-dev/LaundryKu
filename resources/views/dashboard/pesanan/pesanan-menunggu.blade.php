@@ -53,6 +53,11 @@
                                         <button type="submit" class="btn btn-sm btn-success text-nowrap">Terima
                                             Pesanan</button>
                                     </form>
+
+                                    <button type="button" class="btn btn-sm btn-info" data-toggle="modal"
+                                        data-target="#editBeratModal{{ $item->id }}">
+                                        Edit berat
+                                    </button>
                                 </td>
                             </tr>
                         @empty
@@ -65,4 +70,37 @@
             </div>
         </div>
     </div>
+
+    @foreach ($pesanans as $item)
+        <div class="modal fade" id="editBeratModal{{ $item->id }}" tabindex="-1" role="dialog"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <form action="{{ route('pesanan.updateBerat', $item->id) }}" method="POST">
+                    @csrf
+                    @method('PATCH')
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Timbang Ulang Cucian (ID: {{ $item->id }})</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Berat Aktual (Kg)</label>
+                                <input type="number" step="0.01" name="weight" value="{{ $item->weight }}"
+                                    class="form-control" required>
+                                <small class="text-muted">Harga total akan otomatis dihitung ulang sesuai tarif
+                                    layanan.</small>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan Berat & Harga</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    @endforeach
 </x-layouts.dashboard>

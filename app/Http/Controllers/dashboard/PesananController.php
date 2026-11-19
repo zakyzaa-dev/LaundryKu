@@ -82,4 +82,20 @@ class PesananController extends Controller
 
         return redirect()->route('pesanan.baru')->with('success', 'Berhasil menambahkan orderan baru: ' . $newOrder->token);
     }
+
+    public function updateBerat(Request $request, Order $order)
+    {
+        $validated = $request->validate([
+            'weight' => ['required', 'numeric', 'min:0.1']
+        ]);
+
+        $hargaBaru = $order->service->price_per_kg * $validated['weight'];
+
+        $order->update([
+            'weight' => $validated['weight'],
+            'total_price' => $hargaBaru,
+        ]);
+
+        return back()->with('success', 'Berat aktual berhasil diperbarui dan harga disesuaikan!');
+    }
 }

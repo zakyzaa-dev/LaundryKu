@@ -104,4 +104,17 @@ class OrderController extends Controller
 
         return back()->with('token', $token);
     }
+
+    public function lacak(Request $request)
+    {
+        $order = null;
+
+        if ($request->filled('token')) {
+        $order = Order::with(['customer', 'service'])
+            ->where('token', trim($request->token))
+            ->first();
+    }
+
+    return view('orders.lacak', compact('order'));
+    }
 }
